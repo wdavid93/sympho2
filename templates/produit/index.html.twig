@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous nos produits
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="album py-5 bg-light">
+		<div class="container">
+	        
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+				{% for produit in produits %}
+					<div class="col">
+						<div class="card shadow-sm">
+                        <h3 class="titre text-center p-1"> {{produit.nom}} <h3>
+                        <p class="text-center"><img src="{{produit.image}}" alt=""></p> 
+							<div class="card-body">
+								<p class="card-text">{{produit.description}}</p>
+                                <hr>
+                                <p class="text-center fs-2 fw-bold">Prix : {{produit.prix}} </p>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="btn-group">
+                                    <a class="btn btn-sm btn-outline-secondary" href="{{path ( "app_detail_produit", {'id': produit.id }) }}">Edit</a>
+									<!--	<button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
+										<button type="button" class="btn btn-sm btn-outline-secondary">Ajouter</button>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+
+				{% endfor %}
+			</div>
+
+		</div>
+
+	</div>
+
+
+{% endblock %}
