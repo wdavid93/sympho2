@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Bienvenue sur SYMSHOP{% endblock %}</title>
+
+        
+        {% block stylesheets %}
+        {% endblock %}
+
+
+
+    </head>
+
+       <header>
+            {% include '_incs/_nav.html.twig' %} {# La commande include fonctionne comme une include/require php, mais à la seule différence qu'on peut y ajouter des paramètres #}
+       </header> 
+
+      <main class="container-fluid conteneur-base px-0"> 
+        <body>
+            {% block body %}{% endblock %} {# C'est dans ce block que viennent se charger tous nos templates. block body => emplacement réservé (placeholder)  #}
+        </body>
+      </main> 
+
+       {# <footer> #}
+
+           {% include "_incs/_footer.html.twig" %}  
+
+</html>
